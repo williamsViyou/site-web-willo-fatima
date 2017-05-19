@@ -1,0 +1,14 @@
+Ecommerce\EcommerceBundle\Entity\Panier:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\PanierRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        contenu:
+            type: array
+    lifecycleCallbacks: {  }

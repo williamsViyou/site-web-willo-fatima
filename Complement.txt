@@ -1,0 +1,49 @@
+
+video
+traduction langue 
+il manque des moto dans la categorie automobile
+
+
+
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+
+        {% if app.request.hasPreviousSession %}
+
+
+
+        ***************login content hgtml twig
+
+     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+
+
+
+
+    Ceci est dans le fichier confirmed.html.twig
+
+
+    securiser les routes des adresses car on peux s'y connecter sans identifaication 
+       // DELETE FROM facture WHERE idFacture > 25 and idUser = 6 
+
+
+
+ INSERT INTO `data_adrs` ( `Adresse livraison`, `Adresse facturation`, `idFacture`, `Prix`, `livre`) VALUES ( 'af', 'b', '12', '1555', '0')
+
+
+SELECT * FROM data_adrs d where d.idFacture = 1 
+
+
+INSERT INTO `data` (`iddata`, `idUser`, `idProduit`, `quantite`, `_data_adrre`) VALUES (NULL, '6', '9', '2', '1');
+
+
+il y un icon de panier qi traine dans la partir ajour d'addresse 

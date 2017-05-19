@@ -1,0 +1,15 @@
+addAdresse:
+    path:  /adresse
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:newAdresse }
+addmodifiy_livraison_factu:
+    path:  /factuLivrai_modify
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:modify_adresse_livraison2 }
+maj_addr_livrai:
+    path:  /maj_adresse_livraison/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:majAddrsLivraison }
+sup_addr_livrai:
+    path:  /supr_adresse_livraison/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:delAddrsLivraison }
+maj_addr_factu:
+    path:  /maj_adresse_facturation/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:majAddrsfactu }

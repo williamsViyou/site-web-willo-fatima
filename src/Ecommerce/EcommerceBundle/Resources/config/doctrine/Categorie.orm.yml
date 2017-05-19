@@ -1,0 +1,18 @@
+Ecommerce\EcommerceBundle\Entity\Categorie:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\CategorieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        imageId:
+            type: integer
+            column: image_id
+    lifecycleCallbacks: {  }

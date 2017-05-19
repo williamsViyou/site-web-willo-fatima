@@ -1,0 +1,6 @@
+listeCommande:
+    path:     /commande_client
+    defaults: { _controller: EcommerceEcommerceBundle:CommandeAdmin:commandes }
+UneFacture:
+    path:     /facture/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:CommandeAdmin:showFacture }

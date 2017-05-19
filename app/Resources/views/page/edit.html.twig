@@ -1,0 +1,22 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1> Edition de Page</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edition" class="btn btn-primary" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_index') }}">Retour</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" />
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    
+{% endblock %}

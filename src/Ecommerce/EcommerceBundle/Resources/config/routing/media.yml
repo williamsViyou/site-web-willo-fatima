@@ -1,0 +1,24 @@
+yes_index:
+    path:     /media
+    defaults: { _controller: "EcommerceEcommerceBundle:media:index" }
+    methods:  GET
+
+yes_show:
+    path:     /{id}/show
+    defaults: { _controller: "EcommerceEcommerceBundle:media:show" }
+    methods:  GET
+
+yes_new:
+    path:     /new
+    defaults: { _controller: "EcommerceEcommerceBundle:media:new" }
+    methods:  [GET, POST]
+
+yes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EcommerceEcommerceBundle:media:edit" }
+    methods:  [GET, POST]
+
+yes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EcommerceEcommerceBundle:media:delete" }
+    methods:  DELETE

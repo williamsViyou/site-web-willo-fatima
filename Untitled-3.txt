@@ -1,0 +1,8 @@
+{% for   in   %}
+     {% if ( ) %}
+
+     {% endif %}
+{% endfor %}
+
+ if( count($facture) == 0)throw $this->createNotFoundException('L\'adresse n\'existe pas.');
+       else

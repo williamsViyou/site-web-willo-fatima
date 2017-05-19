@@ -1,0 +1,18 @@
+Ecommerce\EcommerceBundle\Entity\media:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\mediaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        path:
+            type: string
+            length: 255
+        alt:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

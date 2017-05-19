@@ -1,0 +1,24 @@
+adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_index:
+    path:     /
+    defaults: { _controller: "PagesPagesBundle:PageAdmin:index" }
+    methods:  GET
+
+adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_show:
+    path:     /{id}/show
+    defaults: { _controller: "PagesPagesBundle:PageAdmin:show" }
+    methods:  GET
+
+adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_new:
+    path:     /new
+    defaults: { _controller: "PagesPagesBundle:PageAdmin:new" }
+    methods:  [GET, POST]
+
+adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PagesPagesBundle:PageAdmin:edit" }
+    methods:  [GET, POST]
+
+adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PagesPagesBundle:PageAdmin:delete" }
+    methods:  DELETE

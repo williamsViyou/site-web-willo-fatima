@@ -1,0 +1,129 @@
+<?php
+// src/AppBundle/Entity/User.php
+
+namespace MyUser\UtilisateurBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+        $adresse = new \Doctrine\Common\Collections\ArrayCollection();
+        $commande = new \Doctrine\Common\Collections\ArrayCollection();
+
+        
+        
+    }
+
+    /**
+    *@ORM\OneToMany (targetEntity="Ecommerce\EcommerceBundle\Entity\commandes", mappedBy="utilisateur", cascade={ "remove"})
+    *@ORM\JoinColumn(nullable = true)
+    */
+    public $commande;
+
+    /**
+    *@ORM\OneToMany (targetEntity="Ecommerce\EcommerceBundle\Entity\utilisateurAdresse", mappedBy="utilisateur", cascade={ "remove"})
+    *@ORM\JoinColumn(nullable = true)
+    */
+   public $adresse;
+
+  
+
+
+
+
+   /**
+     * 
+     * @ORM\Column(type="array")
+     */
+    private $panier;
+
+
+    
+
+    /**
+     * Add commande
+     *
+     * @param \Ecommerce\EcommerceBundle\Entity\commandes $commande
+     *
+     * @return User
+     */
+    public function addCommande(\Ecommerce\EcommerceBundle\Entity\commandes $commande)
+    {
+        $this->commande[] = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Remove commande
+     *
+     * @param \Ecommerce\EcommerceBundle\Entity\commandes $commande
+     */
+    public function removeCommande(\Ecommerce\EcommerceBundle\Entity\commandes $commande)
+    {
+        $this->commande->removeElement($commande);
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
+
+    /**
+     * Add adresse
+     *
+     * @param \Ecommerce\EcommerceBundle\Entity\utilisateurAdresse $adresse
+     *
+     * @return User
+     */
+    public function addAdresse(\Ecommerce\EcommerceBundle\Entity\utilisateurAdresse $adresse)
+    {
+        $this->adresse[] = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Remove adresse
+     *
+     * @param \Ecommerce\EcommerceBundle\Entity\utilisateurAdresse $adresse
+     */
+    public function removeAdresse(\Ecommerce\EcommerceBundle\Entity\utilisateurAdresse $adresse)
+    {
+        $this->adresse->removeElement($adresse);
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+
+}

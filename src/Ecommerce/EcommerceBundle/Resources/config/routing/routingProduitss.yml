@@ -1,0 +1,27 @@
+produits:
+    path:     /all
+    defaults: { _controller: EcommerceEcommerceBundle:Produit:produits }
+
+presentation:
+    path:     /produit/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Produit:presentation }
+
+test:
+    path:     /test
+    defaults: { _controller: EcommerceEcommerceBundle:Test:ajoute }
+testform:
+    path:     /form1
+    defaults: { _controller: EcommerceEcommerceBundle:Test:testFormulaire }
+
+categorieProduits:
+    path:  /categorie/{idcategorie}
+    defaults: { _controller: EcommerceEcommerceBundle:Produit:categorie }
+rechercheProduits:
+    path:  /recherche
+    defaults: { _controller: EcommerceEcommerceBundle:Produit:recherche}
+rechercheUnProduits:
+    path:  /results
+    defaults: { _controller: EcommerceEcommerceBundle:Produit:rechercheTraitement}
+acc:
+    path:     /
+    defaults: { _controller: EcommerceEcommerceBundle:Produit:acceuil }

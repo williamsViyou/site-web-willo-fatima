@@ -1,0 +1,67 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Commandes list</h1>
+
+
+
+    <table class="table table-striped table-hover">
+
+        <thead>
+
+            <tr>
+
+                <th>Article ( Matricule ) </th>
+
+                <th>Categorie</th>
+
+                <th>Prix</th>
+
+                <th>Quantite</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+ {% if details|length == 0 %}
+                        <tr>
+                            <td colspan="4"><center>Aucun article(s) </center></td>
+                        </tr>
+{% else %}
+       
+ {% for d in details %}
+
+            <tr>
+
+                   {% for p in produits  %}
+                      {% if ( d.idProduit  == p.id) %}
+                          <td>{{ p.nom }} ( {{ p.id}} ) </td>
+
+                             {% for c in categories %}
+                                 {% if (c.id == p.categorie) %}
+                                        <td>{{ c.nom }}</td>
+                                 {% endif %}
+                             {% endfor %}
+                               <td>{{ p.prix }}</td>
+                               
+          <td>{{ d.quantite }}</td>
+                      {% endif %}
+                   {% endfor %}                                      
+              
+
+        {% endfor %}
+            </tr>
+        </tbody>
+
+    </table>
+{% endif %}
+
+
+       <h5>Toatl :</h5>
+         <br> <br> <br>
+
+         Et les adressess ... 
+
+
+{% endblock %}

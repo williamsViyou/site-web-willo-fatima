@@ -1,0 +1,7 @@
+my_user_utilisateur_user:
+    resource: "@MyUserUtilisateurBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+my_user_utilisateur_homepage:
+    path:     /utilisateurBundle
+    defaults: { _controller: MyUserUtilisateurBundle:Default:index }

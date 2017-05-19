@@ -1,0 +1,35 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+{% block body %}
+    <h1>Categorie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categorie.nom }}</td>
+            </tr>
+            <tr>
+                <th>Imageid</th>
+                <td>{{ categorie.imageId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorie_index') }}"> Retour </a>
+        </li>
+        <li>
+            <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}">Edition</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

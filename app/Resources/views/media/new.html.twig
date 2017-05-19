@@ -1,0 +1,16 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Creation de media</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Valider" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('yes_index') }}">Retour</a>
+        </li>
+    </ul>
+{% endblock %}

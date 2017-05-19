@@ -1,0 +1,29 @@
+Ecommerce\EcommerceBundle\Entity\Produits:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\ProduitsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: '100'
+        description:
+            type: text
+        prix:
+            type: float
+        disponible:
+            type: boolean
+        categorie:
+            type: string
+            length: '80'
+        image:
+            type: string
+            length: 255
+        tva:
+            type: float
+    lifecycleCallbacks: {  }

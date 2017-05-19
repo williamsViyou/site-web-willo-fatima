@@ -1,0 +1,97 @@
+
+{% extends '::layout/layout.html.twig' %}
+
+{% block body %}
+        
+	<div class="container">
+    <div class="row">
+     <div class="span3"> 
+            {% include '::ModelUsed/navigation.html.twig' %} 
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+               {% include '::ModelUsed/utilisateurConnecter.html.twig' %}  
+            {% else %}
+               {% include '::ModelUsed/utilisateur.html.twig' %} 
+            {% endif %} 
+            
+</div>
+        <div class="span7">
+            <h2>Livraison</h2>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                    
+<div class="span5">
+                        {% if adr|length != 0 %}
+                        <form action="{{ path('validation') }}" method="POST">
+                            
+                            <h4>Adresse de livraison</h4>
+                            {% for adresse in adr %}
+                            <label class="radio">
+                                <input type="checkbox" id="optionsRadios1 name="livraison" value="{{ adresse.id }}" {% if adresse.livraison == 1 %}checked="checked"{% endif %}>
+                                {{ adresse.Adresse }}, {{ adresse.CodePostal }} {{ adresse.Ville }} <a href="{{ path('maj_addr_livrai', { 'id' : adresse.id}) }}"><i class="icon-refresh"></i></a> 
+                                <a href="{{ path('sup_addr_livrai', { 'id' : adresse.id}) }}"><i class="icon-trash"></i></a>
+                                <br />{{ adresse.prenom }} {{ adresse.nom }}  <br />{{ adresse.Tel}}
+                            </label>
+                            {% endfor %}
+                            
+                       
+
+                            <br /><br />
+
+                         
+                            <h4>Adresse de facturation</h4>
+                            {% for adresse in adr %}
+                            <label class="radio">
+                                <input type="checkbox" id="optionsRadios1 name="facturation" value="{{ adresse.id }}" {% if adresse.facturation == 1 %}checked="checked"{% endif %}>
+                                {{ adresse.Adresse }}, {{ adresse.CodePostal }} {{ adresse.Ville }} <a href="{{ path('maj_addr_factu', { 'id' : adresse.id}) }}"><i class="icon-refresh"></i></a> 
+                                <a href="{{ path('sup_addr_livrai', { 'id' : adresse.id}) }}"><i class="icon-trash"></i></a>
+                                <br />{{ adresse.prenom }} {{ adresse.nom }}  <br />{{ adresse.Tel}}
+                            </label>
+                            {% endfor %}
+                            <br />
+                            <a href="#"><i class="glyphicon glyphicon-floppy-disk"></i></a>
+                          <button class="btn btn-primary">Valider mes adresses</button>    
+                        </form>
+                        {% endif %}
+
+     </div>
+
+
+								<div class="span4 offset2">
+									<h4>Ajouter une nouvelle adresse</h4>
+								                   <td> 
+                                <form action="{{ path('addAdresse') }}" method="post">
+                                		<label>Nom</label>
+										<input type="text" name = "nom">
+										
+										<label>Prénom</label>
+										<input type="text" name = "prenom">
+										
+										<label>Adresse</label>
+										<input type="text" name = "addresse">
+										
+                                        <label>Complement</label>
+										<input type="text" name = "complement">	
+
+										<label>Ville</label>
+										<input type="text" name = "ville">					
+
+										<label>Pays</label>
+										<input type="text" name = "pays">	
+
+                                        <label>Code postal</label>
+										<input type="text" name = "cp">
+                                                                                
+										<label>Téléphone</label>
+										<input type="text" name = "tel">                                        
+                                        
+                                        <br />
+										<button class="btn btn-primary">Ajouter</button>
+									</form>
+								</div>
+							</div>
+						</div>
+        		</div>
+	</div>
+
+                 
+{% endblock %}

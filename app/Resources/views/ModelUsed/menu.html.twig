@@ -1,0 +1,7 @@
+
+{% for page in pages %}
+    <li><a href="{{ path ('about', { 'num_page' : page.id }) }}">{{ page.titre }}</a>
+{% endfor %}
+
+
+

@@ -1,0 +1,18 @@
+Ecommerce\EcommerceBundle\Entity\utilisateurAdresse:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\utilisateurAdresseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: '125'
+        prenom:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

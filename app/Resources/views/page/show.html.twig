@@ -1,0 +1,36 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Page</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ page.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ page.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ page.contenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_index') }}">Retour</a>
+        </li>
+        <li>
+            <a href="{{ path('adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds_edit', { 'id': page.id }) }}">Edition</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-primary">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

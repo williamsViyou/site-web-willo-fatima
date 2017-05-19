@@ -1,0 +1,71 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Commandes list</h1>
+
+
+
+    <table class="table table-striped table-hover">
+
+        <thead>
+
+            <tr>
+
+                <th>Référence</th>
+
+                <th>Date de commande</th>
+
+                <th>Date de livraison</th>
+
+                <th>Client</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+ {% if commandes|length == 0 %}
+                        <tr>
+                            <td colspan="4"><center>Aucune commande en cours</center></td>
+                        </tr>
+{% else %}
+        {% for commande in commandes %}
+
+            <tr>
+                <td>{{ commande.id_briefing}}</td>
+
+
+                <td>{{ commande.Date_de_commande }}</td>
+
+                <td>{{ commande.Date_livraison_prevue }}</td>
+ {% for d in details %}
+      {% if(d._data_adrre  == commande.id_briefing ) %}
+           {% for u in users %}
+               {% if (d.idUser == u.id) %}
+
+
+                <td>{{ u.username }} </td>
+
+
+               {% endif %}
+           {% endfor %}
+      {% endif %}
+ {% endfor %}
+                <td>
+
+                    <a href="{{ path('UneFacture', { 'id' : commande.id_briefing }) }}" target = "_blank"><i class="icon-book"></i></a>
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+                    {% endif %}
+     
+{% endblock %}

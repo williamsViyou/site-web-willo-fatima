@@ -1,0 +1,18 @@
+Ecommerce\EcommerceBundle\Entity\PanierUser:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\PanierUserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+        quantite:
+            type: integer
+        idProduit:
+            type: integer
+    lifecycleCallbacks: {  }

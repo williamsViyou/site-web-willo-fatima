@@ -1,0 +1,19 @@
+Ecommerce\EcommerceBundle\Entity\Tva:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\TvaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        multiplicate:
+            type: float
+        nom:
+            type: string
+            length: '125'
+        valeur:
+            type: float
+    lifecycleCallbacks: {  }

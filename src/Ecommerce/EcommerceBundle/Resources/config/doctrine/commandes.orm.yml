@@ -1,0 +1,20 @@
+Ecommerce\EcommerceBundle\Entity\commandes:
+    type: entity
+    table: null
+    repositoryClass: Ecommerce\EcommerceBundle\Repository\commandesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        valider:
+            type: boolean
+        date:
+            type: datetimetz
+        reference:
+            type: integer
+        produits:
+            type: array
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+<div class="well">
+
+<div class="container">
+		<div class="row" color = red>
+				<div class="span9">
+                  {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+                 </div>
+         </div>
+ </div>
+
+        <ul class="nav nav-list">
+            <li>
+                <a href="connexion.php">Se connecter</a>
+            </li>
+            <li>
+                <a href="inscription.php">S'inscrire</a>
+            </li>
+        </ul>
+    </div>

@@ -1,0 +1,43 @@
+<?php
+
+namespace Ecommerce\EcommerceBundle\Entity;
+
+/**
+ * Panier
+ */
+class Panier
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+
+   
+    /**
+     * @var int
+     */
+    private $id_user;
+
+
+
+   
+    /**
+     * @var int
+     */
+    private $quantité;
+    
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+}

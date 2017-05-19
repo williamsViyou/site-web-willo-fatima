@@ -1,0 +1,40 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Media list</h1>
+
+    <table  class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Path</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medium in media %}
+            <tr>
+                <td><a href="{{ path('yes_show', { 'id': medium.id }) }}">{{ medium.id }}</a></td>
+                
+                <td>{{ medium.alt }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('yes_show', { 'id': medium.id }) }}"><i class="icon-book"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('yes_edit', { 'id': medium.id }) }}"><i class="icon-edit"></i></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('yes_new') }}">Create a new medium</a>
+        </li>
+    </ul>
+{% endblock %}

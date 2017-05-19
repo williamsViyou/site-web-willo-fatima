@@ -1,0 +1,107 @@
+
+{% extends '::layout/layout.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        
+          
+         <div class="span3"> 
+            {% include '::ModelUsed/navigation.html.twig' %} 
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+               {% include '::ModelUsed/utilisateurConnecter.html.twig' %}  
+            {% else %}
+               {% include '::ModelUsed/utilisateur.html.twig' %} 
+            {% endif %} 
+            
+</div>
+        <div class="span9">
+            
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                <div class="alert alert-errors">
+                    {{ flashMessage }}
+                </div>
+            
+            
+            {% endfor %}
+            
+            <h1>Valider mon panier</h1>
+            
+            <h1>En cours de livraison</h1>
+            
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Références</th>
+                        <th>Date de commande</th>
+                        <th>Prix unitaire</th>
+                        <th>Supprimer</th>
+                        <th>Details</th>
+                        <th>Etat commande</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if factures|length == 0 %}
+                        <tr>
+                            <td colspan="4"><center>Aucun articles dans votre panier</center></td>
+                        </tr>
+                        {% else %}
+                  
+                    
+                    {% for facture in factures %}
+                    <tr>
+                        <form >
+                            <td>{{facture.idFacture}}</td>
+                            <td>
+                                {{facture.Date }}
+                            </td>
+                            <td>{{facture.PrixFacture }} €</td>
+                            <td>  <a href="{{ path('supprimer', { 'id' : facture.idFacture }) }}"><i class="icon-trash"></i></a> </td>
+                            <td>  <a href="{{ path('DFacture', { 'id' : facture.idFacture }) }}"><i class="icon-book"></i></a> </td>
+                                {% if app.user is not null and is_granted('ROLE_ADMIN') %}
+                             
+                                 <td>
+                                             <a href="{{ path('expediction', { 'id' : facture.idFacture , 'iduser' : facture.idUser }) }}">     Expédiction    <i class="icon-ok-sign"></i></a>   <br />    <br />       
+                                          <a href="{{ path('livraisonfin',  { 'id' : facture.idFacture , 'iduser' : facture.idUser }) }}"> Livraison <i class="icon-plane"></i></a>   
+                                 
+                                 </td>
+                                {% else %}
+                                 <td>{{facture.Livré }}</td>
+                                
+                                                    
+                                {% endif %} 
+                                
+                        </form>
+                    </tr>
+                    {% endfor %}
+                      {% endif %}
+                </tbody>
+            </table>
+           
+
+
+
+
+
+
+
+
+
+
+                                        <br />
+                                        <br />
+                                        <br />
+										<a  href="{{ path('acc') }}"  class="btn btn-primary" target ="_blank">Acceuil</a>
+                                        <br />
+                                        <br />
+                                        <br />
+    </div>
+</div>
+{% endblock %}

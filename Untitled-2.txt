@@ -1,0 +1,11 @@
+pages_pages_adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds:
+    resource: "@PagesPagesBundle/Resources/config/routing/page.yml"
+    prefix:   /adminpage[D[D[D[D[3~[3~P[C[C[C[C[C[D[Ds
+
+pages:
+    path:     /page/{num_page}
+    defaults: { _controller: PagesPagesBundle:Page:page }
+
+about:
+    path:     /about/{num_page}
+    defaults: { _controller: PagesPagesBundle:Page:page }
